@@ -63,7 +63,7 @@ body{
     font-size: 1.9rem;
 }
 
-@media (max-width: 590px){
+@media (max-width: 720px){
     .container{
         margin-top: 10vh;
         display: flex;
