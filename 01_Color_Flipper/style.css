@@ -1,19 +1,20 @@
-html{
+html {
     scroll-behavior: smooth;
 }
-*{
+
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
 
-body{
+body {
     background-color: #d2d2d2;
     color: white;
 }
 
-header{
+header {
     display: flex;
     background-color: aliceblue;
     padding: 25px;
@@ -25,26 +26,26 @@ header{
 
 }
 
-span{
+span {
     color: rgb(0, 217, 255);
 }
 
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     /* padding: 100px; */
 }
 
-.container__item{
+.container__item {
     margin-top: 25vh;
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
 }
 
-.container__board{
+.container__board {
     font-size: 2em;
     background-color: black;
     color: white;
@@ -55,7 +56,7 @@ span{
     letter-spacing: 10px;
 }
 
-.container__button{
+.container__button {
     margin-top: 100px;
     background-color: rgba(0, 0, 0, 0);
     border: 2px solid black;
@@ -69,12 +70,44 @@ span{
 
 }
 
-.container__button:hover{
+.container__button:hover {
     background-color: rgb(255, 255, 255);
     color: black;
 }
-.container__button:active{
+
+.container__button:active {
     background-color: rgba(199, 199, 199, 0);
     color: rgb(64, 64, 64);
     box-shadow: 0px 0px 0px rgb(97, 97, 97);
+}
+
+
+@media screen and (max-width: 1070px) {
+    .container {
+        margin: 25px;
+        font-size: 20px;
+        /* padding: 25px; */
+    }
+
+    header {
+        letter-spacing: 0px;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .container__board {
+        font-size: 40px;
+        display: flex;
+        /* margin: 10px 0; */
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: 0px;
+        text-align: center;
+    }
+
+    .container__button {
+        margin-top: 20px;
+        font-size: 25px;
+    }
 }
