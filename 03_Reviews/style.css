@@ -176,8 +176,9 @@ svg:active {}
 }
 
 .card__button:active {
-    margin-top: 8px;
-    font-size: 0.9rem;
+    background-color: rgb(68, 134, 134);
+    /* margin-top: 8px; */
+    /* font-size: 0.9rem; */
 }
 
 
