@@ -44,14 +44,14 @@ arrowsBlock.addEventListener('click', (event) => {
     switch (event.target) {
         case event.target.closest(".left"):
             if (number < 0) {
-                number = 2;
+                number = arr.length;
             };
             change(number);
             number--;
             break;
         case event.target.closest(".right"):
 
-            if (number > 2) {
+            if (number > arr.length) {
                 number = 0
             };
             change(number);
@@ -61,5 +61,5 @@ arrowsBlock.addEventListener('click', (event) => {
 });
 
 card__button.addEventListener('click', (event) => {
-    change(Math.floor(Math.random() * 3));
+    change(Math.floor(Math.random() * arr.length));
 });
