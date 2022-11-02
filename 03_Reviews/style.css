@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(244, 244, 244);
+    font-family: 'Heebo', sans-serif;
+    font-weight: 400;
+    height: 100%;
+}
+
+.container {
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.head {
+    letter-spacing: 5px;
+    font-weight: 700;
+    font-size: 2rem;
+    position: relative;
+}
+
+.head::after {
+    content: "";
+    position: absolute;
+    width: 80px;
+    height: 5px;
+    right: 105px;
+    bottom: 0;
+    background-color: rgb(150, 223, 208);
+}
+
+.card {
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
+    overflow: hidden;
+    font-size: 15px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    width: 100vh;
+    box-shadow: 0px 0px 10px rgb(187, 187, 187);
+    height: 78vh;
+}
+
+.card__item {
+    margin: 5px 0;
+}
+
+.item_1 {
+    width: 150px;
+    position: relative;
+}
+
+.item__img {
+    z-index: 2;
+    position: absolute;
+    left: 0;
+    top: 0;
+    object-fit: fill;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.item__background {
+    z-index: 1;
+    right: -10px;
+    top: -5px;
+    background-color: rgb(91, 177, 177);
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+}
+
+.item__checkmark {
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: rgb(91, 177, 177);
+    z-index: 3;
+    top: 15px;
+    left: 0px;
+    position: absolute;
+}
+
+.card__img::after {
+    position: absolute;
+    content: "./img/checkmark.webp";
+    top: 0;
+    left: 0;
+}
+
+.card__name {
+    margin-top: 150px;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 4px;
+}
+
+.card__job-position {
+    color: rgb(91, 177, 177);
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+.card__text {
+    text-align: center;
+    width: 500px;
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.item_4 {
+    margin-top: 10px;
+    transition: 1s ease;
+    /* height: 30px; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* width: 500px; */
+    cursor: pointer;
+}
+
+.item_4 button{
+    cursor: pointer;
+    background-color: rgba(240, 248, 255, 0);
+    border: none;
+    border-radius: 25%;
+}
+
+svg {
+    color: rgb(91, 177, 177);
+    transition: 0.3s ease;
+
+}
+
+svg:hover {
+    color: rgb(76, 130, 130);
+}
+
+svg:active {}
+
+.card__button {
+    margin-top: 5px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    border: 2px solid rgb(91, 177, 177);
+    cursor: pointer;
+    transition: 0.3s ease;
+    padding: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.card__button:hover {
+    background-color: rgb(91, 177, 177);
+    color: white;
+}
+
+.card__button:active {
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+
+@media screen and (max-width: 720px) {
+    .card {
+        margin: 0 50px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 25px;
+        overflow: hidden;
+        font-size: 15px;
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 20px;
+        width: 90%;
+        box-shadow: 0px 0px 10px rgb(187, 187, 187);
+        height: 100%;
+    }
+
+    .card__text {
+        width: 250px;
+        font-weight: 300;
+        font-size: 0.8rem;
+    }
+}
