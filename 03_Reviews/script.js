@@ -43,23 +43,18 @@ function change(x) {
 arrowsBlock.addEventListener('click', (event) => {
     switch (event.target) {
         case event.target.closest(".left"):
-            console.log(number);
-            if (number < 0) {
+            if(number < 0 || number >= arr.length){
                 number = arr.length - 1;
             };
             change(number);
             number--;
-            console.log(number);
-            console.log(arr.length);
             break;
         case event.target.closest(".right"):
-
-            if (number >= arr.length) {
-                number = 0
+            if(number < 0 || number >= arr.length){
+                number = 0;
             };
             change(number);
             number++;
-            console.log(number);
             break;
     };
 });
