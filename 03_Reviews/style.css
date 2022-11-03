@@ -131,13 +131,7 @@ body {
 }
 
 .item_4 {
-    /* margin-top: 10px; */
     transition: 1s ease;
-    /* height: 30px; */
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
-    /* width: 500px; */
     cursor: pointer;
 }
 
@@ -158,8 +152,6 @@ svg:hover {
     color: rgb(76, 130, 130);
 }
 
-svg:active {}
-
 .card__button {
     /* margin-top: 5px; */
     background-color: rgb(255, 255, 255);
@@ -179,33 +171,38 @@ svg:active {}
 
 .card__button:active {
     background-color: rgb(68, 134, 134);
-    /* margin-top: 8px; */
-    /* font-size: 0.9rem; */
 }
 
 
 @media screen and (max-width: 720px) {
-    .card {
+    .container{
+        margin-top: 0vh;
+    }
+    .card{
+        /* margin-top: 20px; */
         margin: 0 50px;
-        background-color: rgb(255, 255, 255);
-        border-radius: 25px;
-        overflow: hidden;
-        font-size: 15px;
-        margin-top: 25px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 20px;
-        width: 90%;
-        box-shadow: 0px 0px 10px rgb(187, 187, 187);
-        height: 100%;
+        width: 100%;
+        height: 500px;
     }
 
-    .card__text {
-        width: 250px;
-        font-weight: 300;
-        font-size: 0.8rem;
+    .head{
+        margin: 0;
+    }
+
+    .head::after {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 5px;
+        right: 105px;
+        bottom: 5px;
+        background-color: rgb(150, 223, 208);
+    }
+
+    .card__text{
+        width: 300px;
+    }
+    .item_4{
+        margin-top: 50px;
     }
 }
