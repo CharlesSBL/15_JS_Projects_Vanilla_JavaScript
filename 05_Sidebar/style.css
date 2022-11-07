@@ -68,10 +68,8 @@ button svg{
 }
 
 button:hover{
-    /* background-color: blue; */
 }
 .sidebar{
-    /* display: none; */
     position: fixed;
     top: 0;
     left: 0;
@@ -108,19 +106,13 @@ svg{
 
 svg:hover{
     border-radius: 25px;
-    /* background-color: rgb(217, 245, 255); */
-    /* height: 40px; */
-    /* width: 40px; */
     rotate: 360deg;
 }
 
 .sidebar__head svg{
-    /* width: 40px; */
-    /* height: 40px; */
 }
 
 .logo{
-    /* background-color: #141418; */
     border-radius: 10px;
     height: 100px;
     width: 200px;
@@ -130,7 +122,6 @@ svg:hover{
 
 
 .logo:hover{
-    /* background-color: rgb(217, 245, 255); */
 }
 
 .head-item{
@@ -166,6 +157,15 @@ svg:hover{
 }
 .sidebar__exit svg{
     height: 40px
-    /* margin-top: 20px; */
-    /* display: flex; */
+}
+
+@media screen and (max-width: 510px) {
+    .sidebar{
+        z-index: 2;
+        width: 100%;
+    }
+    .btn02{
+        z-index: 1;
+        display: fixed;
+    }
 }

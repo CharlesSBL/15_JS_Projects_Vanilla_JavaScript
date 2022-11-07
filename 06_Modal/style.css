@@ -111,7 +111,7 @@ body {
     font-size: 3rem;
 }
 
-.overlay{
+.overlay {
     /* display: none; */
     z-index: 1;
     position: fixed;
@@ -125,7 +125,7 @@ body {
     transform: translate(110%);
 }
 
-.overlay_active{
+.overlay_active {
     transform: translate(0%);
     display: block;
     opacity: 0.5;
