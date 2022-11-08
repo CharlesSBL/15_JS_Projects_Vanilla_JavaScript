@@ -32,7 +32,8 @@ ul{
 
 body {
     color: black;
-    background-color: rgb(245, 245, 245);
+    background-image: url('./img/pexels-zukiman-mohamad-21787.jpg');
+    background-position: 100% 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -80,7 +81,7 @@ button:hover{
     justify-content: space-between;
     align-items: center;
     height: 100vh;
-    box-shadow: 5px 0 10px rgb(228, 228, 228);
+    box-shadow: 5px 0 10px rgba(152, 152, 152, 0.177);
     transition: 1s ease;
     display: flex;
     transform: translate(-100%)
