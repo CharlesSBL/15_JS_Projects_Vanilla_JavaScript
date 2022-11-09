@@ -9,8 +9,8 @@ const menu__buttons = document.querySelector('.menu__buttons');
 // to get dark light buttons
 const theme__btn_light = document.querySelector('.theme__btn-light')
 const theme__btn_dark = document.querySelector('.theme__btn-dark')
-
-
+// making arr of save there list of dishes api
+let data_num;
 
 const options = {
     "capture": false, // phase on that func must run
@@ -18,23 +18,25 @@ const options = {
     "passive": false, // if true, it will never call func preventDefault()
 }
 
-
 // =============================================================== Generate new List of dishes
-let data_num;
 
+// clear menu body
 function clear() {
     if (menu__body) {
         menu__body.innerHTML = ``;
     };
 };
-
+// Generate element and add him
 function addElements(data) {
     for (let i: number = 0; i < data.length; i++) {
+        // create new div
         const newCard = document.createElement('div');
 
+        // add classes to him
         newCard.classList.add('menu__card');
         newCard.classList.add(`card_${i}`);
 
+        // add him body
         newCard.innerHTML = `   <div class="img_back img_back_${i}">
                                     <div class="card__img c-img_${i}"></div>
                                 </div>
@@ -48,29 +50,30 @@ function addElements(data) {
                                         <p class="card__text c-text_${i}">${data[i]['dsc']}</p>
                                     </div>
                                 </div>`;
+        // get class where we will add new background img
         const img = newCard.querySelector<HTMLElement>(`.c-img_${i}`)!;
+        // add img url to css
         img.style.backgroundImage = `url("${data[i]['img']}")`;
+        // adding new list to body of menu
         menu__body?.appendChild(newCard);
     };
 };
-
+// getting arr of dishes api
 function test(typeOfFood): void {
     fetch(`https://ig-food-menus.herokuapp.com/${typeOfFood}`)
         .then((response) => response.json())
         .then((data) => {
-
+            // clear list
             clear();
+
+            // Generate list of dishes
             addElements(data);
+
+            // save arr of dishes
             data_num = data;
         }
         );
 };
-
-
-
-
-
-
 
 // ================================================ Changing Card Desc
 // getting index of clicked card
@@ -118,26 +121,21 @@ function getCard(dataArr, index): void {
                     </div>`;
         // changing url background of card desc
         const img = c_desc.querySelector<HTMLElement>(`.c-desc__img`)!;
-        // 
+        // adding url img
         img.style.backgroundImage = `url("${dataArr[index]['img']}")`;
     };
 };
-
-
-
-
-
-
-
-
 
 // ========================================================== Events
 // event to filter list of dishes
 menu__buttons?.addEventListener('click', (event) => {
     event.stopPropagation();
+    // getting card desc
     const c_desc = document.querySelector('.c-desc');
+    // removing class for hide card
     c_desc?.classList.remove('c-desc_active');
 
+    // getting licked elem
     const target = event.target as HTMLButtonElement;
     if (target) {
         switch (target) {
@@ -207,8 +205,6 @@ theme__btn_light?.addEventListener('click', () => {
     }
 });
 
-
-
 // generate new info on card desc
 menu__body?.addEventListener('click', event => {
     // get event.target
@@ -223,14 +219,23 @@ menu__body?.addEventListener('click', event => {
     // get exit button on new gen info card
     const c_desc__icon = document.querySelector('.c-desc__icon');
 
+    // to add to card new func
     if (target.closest('.menu__card')) {
         // open card
         c_desc?.classList.toggle('c-desc_active');
 
-        c_desc__icon?.addEventListener('click', event => {
-            const c_desc = document.querySelector('.c-desc');
+        // hide menu list
+        menu__body.classList.toggle('menu__body_active-hidden')
 
+        // add to icon function to exit
+        c_desc__icon?.addEventListener('click', event => {
+            // getting icon
+            const c_desc = document.querySelector('.c-desc');
+            // toggle hidden
             c_desc?.classList.toggle('c-desc_active');
+
+            // unhide menu list
+            menu__body.classList.toggle('menu__body_active-hidden')
         });
     }
 }, false);

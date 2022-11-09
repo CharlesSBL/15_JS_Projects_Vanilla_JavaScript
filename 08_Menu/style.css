@@ -212,7 +212,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 1fr));
     gap: 3rem;
-
+    transition: 1s ease;
 }
 
 /* ============================================================== CARD */
@@ -391,6 +391,8 @@ span {
     visibility: visible;
 }
 
+
+
 .menu__body {
     visibility: visible;
 
@@ -544,6 +546,11 @@ span {
     visibility: visible;
 }
 
+.menu__body_active-hidden{
+    transform: translate(-100%);
+    opacity: 0;
+    visibility: hidden;
+}
 
 /* ================================================ Media */
 
@@ -694,3 +701,4 @@ span {
 
     }
 }
+
