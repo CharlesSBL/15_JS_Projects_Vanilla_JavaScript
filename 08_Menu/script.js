@@ -220,12 +220,14 @@ menu__body === null || menu__body === void 0 ? void 0 : menu__body.addEventListe
         c_desc === null || c_desc === void 0 ? void 0 : c_desc.classList.toggle('c-desc_active');
         // hide menu list
         menu__body.classList.toggle('menu__body_active-hidden');
+        menu__buttons === null || menu__buttons === void 0 ? void 0 : menu__buttons.classList.toggle('menu__buttons_active-hidden');
         // add to icon function to exit
         c_desc__icon === null || c_desc__icon === void 0 ? void 0 : c_desc__icon.addEventListener('click', function (event) {
             // getting icon
             var c_desc = document.querySelector('.c-desc');
             // toggle hidden
             c_desc === null || c_desc === void 0 ? void 0 : c_desc.classList.toggle('c-desc_active');
+            menu__buttons === null || menu__buttons === void 0 ? void 0 : menu__buttons.classList.toggle('menu__buttons_active-hidden');
             // unhide menu list
             menu__body.classList.toggle('menu__body_active-hidden');
         });

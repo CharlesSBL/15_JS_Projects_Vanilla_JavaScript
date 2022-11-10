@@ -177,6 +177,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: 1s ease;
 }
 
 .menu__btn {
@@ -574,6 +575,12 @@ span {
     visibility: hidden;
 }
 
+.menu__buttons_active-hidden {
+    transform: translate(50%);
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* ================================================ Animation */
 @keyframes animationName1 {
     0% {
@@ -621,7 +628,7 @@ span {
 }
 
 .menu__buttons {
-    animation: animationName2 2s;
+    animation: animationName2 1.5s;
     position: relative;
 }
 

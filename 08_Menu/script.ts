@@ -252,6 +252,7 @@ menu__body?.addEventListener('click', event => {
 
         // hide menu list
         menu__body.classList.toggle('menu__body_active-hidden');
+        menu__buttons?.classList.toggle('menu__buttons_active-hidden');
 
         // add to icon function to exit
         c_desc__icon?.addEventListener('click', event => {
@@ -259,6 +260,7 @@ menu__body?.addEventListener('click', event => {
             const c_desc = document.querySelector('.c-desc');
             // toggle hidden
             c_desc?.classList.toggle('c-desc_active');
+            menu__buttons?.classList.toggle('menu__buttons_active-hidden');
 
             // unhide menu list
             menu__body.classList.toggle('menu__body_active-hidden');
