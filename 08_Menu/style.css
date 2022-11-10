@@ -618,6 +618,19 @@ span {
     }
 }
 
+@keyframes animationName4 {
+    0% {
+    }
+
+    100% {
+        color: rgb(233, 0, 0);
+    }
+}
+
+.main__text h1{
+    animation: animationName4 2s infinite alternate;
+}
+
 .menu__body {
     position: relative;
 }
