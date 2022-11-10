@@ -5,6 +5,16 @@
     font-weight: 700;
 }
 
+:root {
+    --1-color: rgb(255, 242, 219);
+    --2-color: #5c0000;
+    /* --3-color: #000000; */
+    --3-color: #5c0000;
+    --4-color: #290000;
+    --trans-anim: 1.5s ease;
+    --trans-anim2: 0.5s ease;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -14,11 +24,11 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-    background-color: black;
+    background-color: var(--3-color);
 }
 
 html::-webkit-scrollbar-thumb {
-    background-color: rgb(96, 0, 0);
+    background-color: var(--1-color);
     border-radius: 10px;
 }
 
@@ -27,13 +37,13 @@ html::-webkit-scrollbar-thumb {
 
 body {
     font-size: 16px;
-    color: black;
+    color: var(--3-color);
 }
 
 .body_background {
     background-image: url('./img/texture-background.jpg');
     min-height: 100vh;
-    transition: 0.5s ease;
+    transition: var(--trans-anim);
 }
 
 .container {
@@ -50,10 +60,10 @@ body {
     width: 100%;
     position: fixed;
     transform: translate(100%);
-    background-color: rgba(0, 0, 0, 0.797);
+    background-color: black;
     height: 100%;
-    transition: 1.5s ease;
-
+    opacity: 0.8;
+    transition: var(--trans-anim)
 }
 
 
@@ -66,10 +76,10 @@ body {
     position: fixed;
     top: 0;
     right: 0;
-    background-color: rgb(86, 0, 0);
+    background-color: var(--2-color);
     margin: 20px;
     /* padding: 1px; */
-    border: 2px solid rgb(0, 0, 0);
+    border: 2px solid var(--3-color);
     border-radius: 15px;
     overflow: hidden;
 }
@@ -86,9 +96,9 @@ body {
 .theme__btn-light {
     /* border: 2px solid white; */
     border: none;
-    fill: white;
+    fill: var(--1-color);
     padding: 10px;
-    transition: 0.3s ease;
+    transition: var(--trans-anim2);
     visibility: hidden;
     display: none;
 }
@@ -98,20 +108,20 @@ body {
 }
 
 .theme__btn-light:hover {
-    background-color: white;
-    fill: rgb(88, 0, 0);
+    background-color: var(--1-color);
+    fill: var(--2-color);
 
 }
 
 .theme__btn-dark {
     /* border: 2px solid black; */
     border: none;
-    fill: rgb(255, 255, 255);
+    fill: var(--1-color);
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.3s ease;
+    transition: var(--trans-anim2)
 }
 
 .theme__btn-dark_active {
@@ -123,8 +133,8 @@ body {
 }
 
 .theme__btn-dark:hover {
-    background-color: rgb(255, 255, 255);
-    fill: rgb(88, 0, 0);
+    background-color: var(--1-color);
+    fill: var(--2-color);
 }
 
 
@@ -143,8 +153,8 @@ body {
 }
 
 .menu__title {
-    transition: 1s ease;
-    color: rgb(98, 0, 0);
+    transition: var(--trans-anim2);
+    color: var(--1-color);
     text-align: center;
     font-size: 3rem;
     margin-bottom: 50px;
@@ -154,12 +164,13 @@ body {
 
 .menu__title a {
     text-decoration: none;
-    color: rgb(98, 0, 0);
-    transition: 0.3s ease;
+    color: var(--2-color);
+    transition: var(--trans-anim2);
 }
 
 .menu__title:hover a {
-    color: rgb(139, 0, 0);
+    /* color: var(--1-color); */
+    opacity: 0.8;
 }
 
 .menu__title::after {
@@ -169,7 +180,7 @@ body {
     left: 41%;
     height: 4px;
     width: 130px;
-    background-color: rgb(77, 77, 77);
+    background-color: var(--1-color);
 }
 
 .menu__buttons {
@@ -177,18 +188,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: 1s ease;
+    transition: var(--trans-anim2)
 }
 
 .menu__btn {
     position: relative;
-    color: rgb(98, 0, 0);
+    color: var(--2-color);
     cursor: pointer;
     border-radius: 10px;
     font-size: 1.2rem;
     background-color: unset;
-    border: 2px solid rgb(98, 0, 0);
-    transition: 0.3s ease;
+    border: 2px solid var(--2-color);
+    transition: var(--trans-anim2);
     overflow: hidden;
     width: 150px;
     height: 50px;
@@ -201,24 +212,24 @@ body {
     position: absolute;
     left: -2px;
     top: -2px;
-    background-color: rgb(98, 0, 0);
+    background-color: var(--2-color);
 
     width: 150px;
     height: 50px;
     transform: translate(-100%, 0%);
-    transition: 0.5s ease;
+    transition: var(--trans-anim2);
 }
 
 
 
 .btn__text {
-    transition: 0.5s ease;
+    transition: var(--trans-anim2);
     text-align: center;
     position: absolute;
 }
 
 .menu__btn:hover {
-    color: white;
+    color: var(--1-color);
 }
 
 .menu__btn:hover .btn_paper {
@@ -230,7 +241,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, minmax(100px, 1fr));
     gap: 3rem;
-    transition: 1s ease;
+    transition: var(--trans-anim)
 }
 
 /* ============================================================== CARD */
@@ -238,36 +249,44 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    transition: 0.3s ease;
+    transition: var(--trans-anim2);
     border-radius: 10px;
     cursor: pointer;
-    background-color: rgba(30, 0, 0, 0.244);
+    background-color: rgb(255, 242, 219, 0.5);
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.2);
     visibility: hidden;
+    opacity: 1;
 }
 
 .menu__card:hover {
-    background-color: rgb(30, 0, 0);
-    color: white;
+    background-color: var(--4-color);
+    color: var(--1-color);
+    opacity: 1;
 }
 
 .menu__card:active {
-    background-color: rgb(30, 0, 0);
+    background-color: var(--4-color);
     opacity: 0.5;
-    color: white;
+    color: var(--1-color);
 }
 
 .menu__card:hover .card__text {
-    color: white;
+    color: var(--1-color);
 }
 
 .menu__card:hover .card__price span {
     color: red;
 }
 
+.menu__card:hover .img_back {
+    background-color: var(--1-color);
+
+}
+
 .img_back {
     border-radius: 5px;
     padding: 5px;
-    background-color: rgb(98, 0, 0);
+    background-color: var(--2-color);
     margin-right: 20px;
 }
 
@@ -300,7 +319,7 @@ body {
 }
 
 .card__price {
-    color: black;
+    color: var(--3-color);
 }
 
 .card__body {
@@ -308,27 +327,27 @@ body {
 }
 
 .card__line {
-    background-color: rgb(98, 0, 0);
+    background-color: var(--2-color);
     height: 2px;
     width: 100%;
     margin-bottom: 10px;
 }
 
 .card__text {
-    color: rgb(0, 0, 0);
-    transition: 0.3s ease;
+    color: var(--3-color);
+    transition: var(--trans-anim);
     font-size: 1.3rem;
     font-weight: 300;
 
 }
 
 span {
-    transition: 0.3s ease;
+    transition: var(--trans-anim);
     letter-spacing: 1px;
     margin-right: 5px;
     font-size: 1.2rem;
 
-    color: rgb(36, 36, 36);
+    color: var(--2-color);
 }
 
 /* =============================================== Default card */
@@ -341,19 +360,18 @@ span {
 
 
 .body__main {
-    box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.569);
+    box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     width: 800px;
-    /* height: 430px; */
     border-radius: 25px;
-    background-color: rgb(80, 0, 0);
+    background-color: var(--2-color);
 }
 
 .body__main img {
     padding: 10px;
-    border: 5px solid rgb(34, 0, 0);
+    border: 5px solid var(--4-color);
     width: 800px;
     overflow: hidden;
     border-radius: 25px;
@@ -375,7 +393,7 @@ span {
 
 .main__text p {
     font-size: 1.5rem;
-    color: rgb(39, 39, 39);
+    color: var(--3-color);
 }
 
 /* =================================================== card-description */
@@ -391,18 +409,18 @@ span {
     margin-left: -500px;
     /* Negative half of width. */
     padding: 50px;
-    background-color: rgb(255, 238, 211);
+    background-color: var(--1-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 25px;
-    border: 5px solid rgb(60, 0, 0);
-    box-shadow: -50px 50px 20px rgba(0, 0, 0, 0.516);
+    border: 5px solid var(--2-color);
+    box-shadow: -50px 50px 20px rgba(0, 0, 0, 0.5);
 
     visibility: hidden;
     /* display: none; */
     opacity: 0;
-    transition: 0.5s ease;
+    transition: var(--trans-anim2);
     transform: translate(0, 25%);
 }
 
@@ -426,17 +444,17 @@ span {
     top: 0;
     right: 0;
     margin: 20px;
-    transition: 1s ease;
+    transition: var(--trans-anim2);
     cursor: pointer;
 }
 
 .c-desc__icon svg {
-    transition: 1s ease;
+    transition: var(--trans-anim2)
 }
 
 .c-desc__icon svg:hover {
     transform: rotate(180deg);
-    fill: rgb(195, 0, 0);
+    fill: red;
 }
 
 /* =============== left */
@@ -444,7 +462,7 @@ span {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(89, 0, 0);
+    background-color: var(--2-color);
     padding: 10px;
 }
 
@@ -490,7 +508,7 @@ span {
 .c-desc__line {
     height: 5px;
     width: 100%;
-    background-color: rgb(101, 0, 0);
+    background-color: var(--2-color);
     margin-bottom: 20px;
 }
 
@@ -502,61 +520,87 @@ span {
 /* ============================================= Hover */
 
 .hover {
-    transition: 0.5s ease;
+    transition: var(--trans-anim);
 }
 
 .hover:hover .c-desc {
-    background-color: rgb(72, 24, 24);
-    border: 5px solid rgb(188, 175, 154);
+    background-color: var(--4-color);
+    border: 5px solid var(--1-color);
 }
 
 .hover:hover {
-    color: rgb(255, 238, 211);
+    color: var(--1-color);
 }
 
 .hover:hover .c-desc__line {
-    background-color: rgb(255, 238, 211);
+    background-color: var(--2-color);
 }
 
 .hover:hover .c-desc__left {
-    background-color: rgb(255, 238, 211);
+    background-color: var(--2-color);
     border-radius: 10px;
 }
 
 .hover:hover .c-desc__icon svg {
-    fill: rgb(255, 238, 211);
+    fill: var(--1-color);
 }
 
 .hover:hover .c-desc__icon svg:hover {
-    fill: rgb(0, 0, 0);
+    fill: var(--3-color);
 }
 
 .hover:hover .paper {
     transform: translate(0%);
 }
 
-.hover:hover .menu__title {
-    color: white;
+.hover:hover .menu__title a {
+    color: var(--1-color);
+    /* color:rgb(0, 255, 0); */
+}
+
+.hover:hover .menu__title a:hover {
+    color: var(--2-color);
+    /* color:rgb(0, 255, 0); */
 }
 
 .hover:hover .btn_paper {
-    background-color: rgb(255, 255, 255);
+    background-color: var(--1-color);
 }
 
 .hover:hover .menu__btn {
-    color: white;
+    color: var(--1-color);
 }
 
 .hover:hover .menu__btn:hover {
-    color: black;
+    color: var(--2-color);
+}
+
+.hover:hover .menu__card {
+    background-color: #29000078;
 }
 
 .hover:hover .card__text {
-    color: rgb(185, 185, 185);
+    color: var(--1-color);
+}
+
+.hover:hover .menu__card:hover {
+    background-color: var(--1-color);
+}
+
+.hover:hover .menu__card:hover .card__text {
+    color: var(--4-color);
+}
+
+.hover:hover .menu__card:hover .card__title {
+    color: var(--2-color);
+}
+
+.hover:hover .menu__card:hover .img_back {
+    background-color: var(--4-color);
 }
 
 .hover:hover span {
-    color: white;
+    color: var(--1-color);
 }
 
 .hover:hover .theme__btn-dark {
@@ -622,7 +666,7 @@ span {
     0% {}
 
     100% {
-        color: rgb(189, 0, 0);
+        color: red;
     }
 }
 
@@ -1012,7 +1056,6 @@ span {
     }
 }
 
-
 @media screen and (max-width: 470px) {
 
     .c-desc {
@@ -1177,7 +1220,6 @@ span {
     }
 }
 
-
 @media screen and (max-width: 470px) {
 
     .c-desc {
@@ -1257,4 +1299,3 @@ span {
         flex-direction: column;
     }
 }
-
