@@ -176,10 +176,12 @@ body {
 .menu__title::after {
     position: absolute;
     content: '';
-    top: 75px;
-    left: 41%;
     height: 4px;
     width: 130px;
+    bottom: 0;
+    left: 50%;
+    margin-bottom: -2px;
+    margin-left: -65px;
     background-color: var(--1-color);
 }
 
@@ -558,7 +560,7 @@ span {
     /* color:rgb(0, 255, 0); */
 }
 
-.hover:hover .menu__title::after{
+.hover:hover .menu__title::after {
     background-color: var(--3-color);
 }
 
