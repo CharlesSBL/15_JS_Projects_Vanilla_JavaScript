@@ -490,21 +490,25 @@ span {
 /* ========= head */
 .c-desc__head {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
 
 .c-desc__title {
     font-size: 3rem;
+    margin-bottom: 20px;
 }
 
 .c-desc__price span {
+    /* margin-top: 20px; */
     font-size: 2rem;
 }
 
 /* ========= body */
 .c-desc__body {
     margin-top: 10px;
+    text-align: center;
 }
 
 .c-desc__line {
@@ -709,10 +713,21 @@ span {
     visibility: visible;
 }
 
+
+
 /* ================================================ Media */
 @media screen and (max-width: 1600px) {
     .body__main {
         width: 600px;
+    }
+
+    .c-desc__head {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .c-desc__body {
+        text-align: center;
     }
 }
 
@@ -722,7 +737,9 @@ span {
     }
 }
 
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 1200px) {}
+
+@media screen and (max-width: 1200px) {
     .body__main {
         width: 700px;
     }
@@ -882,6 +899,21 @@ span {
         font-size: 1rem;
         /* text-align: center; */
 
+    }
+
+    .card__head {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .card__body {
+        text-align: center;
+    }
+
+    .c-desc__right-side {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -1135,98 +1167,8 @@ span {
     .item1 {
         width: unset;
     }
-}
 
-@media screen and (max-width: 280px) {
-    .card__img {
-        width: 100%;
-    }
-
-    .img_back {
-        margin-right: 0px;
-    }
-
-    .body__main {
-        width: 450px;
-    }
-
-    .main__text h1 {
-        width: unset;
-    }
-
-    .menu__card {
-        flex-direction: column;
-    }
-
-    .card__right-side {
-        margin-top: 10px;
-    }
-
-    .card__span {
-        text-align: center;
-        /* width: 100%; */
-    }
-
-    /* ======================================== c-desc */
-    .c-desc {
-        z-index: 10;
-        position: fixed;
-        height: 400px;
-        width: 300px;
-        top: 50%;
-        left: 50%;
-        margin-top: -200px;
-        /* Negative half of height. */
-        margin-left: -150px;
-        /* Negative half of width. */
-        flex-direction: column;
-    }
-
-    .c-desc__head {
-        margin-top: 0px;
-        /* flex-direction: column; */
-    }
-
-    .c-desc__left {
-        margin-right: 0px;
-        /* margin-left: 20px; */
-    }
-
-    .c-desc__img {
-        /* background-image: url('./img/burger.png'); */
-        background-size: cover;
-        width: 150px;
-        height: 100px;
-    }
-
-    .c-desc__price span {
-        text-align: center;
-        font-size: 1rem;
-        /* margin-right: 1rem; */
-    }
-
-    .c-desc__right-side {
-        margin-top: 10px;
-        margin-left: 0px;
-        height: unset;
-        width: unset;
-    }
-
-    .c-desc__title {
-        /* text-align: center; */
-
-        font-size: 1rem;
-        /* margin-bottom: 10px; */
-    }
-
-    .c-desc__text {
-        font-size: 1rem;
-        /* text-align: center; */
-
-    }
-}
-
-@media screen and (max-width: 470px) {
+    /* ==================================== second */
 
     .c-desc {
         z-index: 10;
@@ -1303,5 +1245,120 @@ span {
     .card__head {
         display: flex;
         flex-direction: column;
+    }
+
+    .c-desc__left {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 280px) {
+    .menu__card {
+        margin-bottom: 40px;
+    }
+
+    .card__img {
+        width: 100%;
+    }
+
+    .img_back {
+        margin-right: 0px;
+    }
+
+    .body__main {
+        width: 450px;
+    }
+
+    .main__text h1 {
+        width: unset;
+    }
+
+    .menu__card {
+        flex-direction: column;
+    }
+
+    .card__right-side {
+        margin-top: 10px;
+    }
+
+    .card__span {
+        text-align: center;
+        /* width: 100%; */
+    }
+
+    /* ======================================== c-desc */
+
+
+    .c-desc {
+        z-index: 10;
+        position: fixed;
+        height: 500px;
+        width: 180px;
+        top: 50%;
+        left: 50%;
+        margin-top: -250px;
+        /* Negative half of height. */
+        margin-left: -90px;
+        /* Negative half of width. */
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .c-desc__head {
+        /* margin-top: 0px; */
+        display: flex;
+        flex-direction: column;
+        /* flex-direction: column; */
+    }
+
+    .c-desc__left {
+        width: 150px;
+        /* height: 200px; */
+        margin-right: 0px;
+        /* margin-left: 20px; */
+    }
+
+    .c-desc__img {
+        /* background-image: url('./img/burger.png'); */
+        background-size: cover;
+        width: 150px;
+        height: 100px;
+    }
+
+    .c-desc__price span {
+        text-align: center;
+        font-size: 1rem;
+        /* margin-right: 1rem; */
+    }
+
+    .c-desc__right-side {
+        /* margin-top: -150px; */
+        margin-left: 0px;
+        height: unset;
+        width: 150px;
+        text-align: center;
+    }
+
+    .c-desc__title {
+        /* text-align: center; */
+        text-align: center;
+        font-size: 1rem;
+        /* margin-bottom: 10px; */
+    }
+
+    .c-desc__text {
+        font-size: 1rem;
+        /* text-align: center; */
+    }
+
+    .c-desc__icon {
+        top: unset;
+        /* left: unset; */
+        /* right: 0; */
+        bottom: 25px;
+        width: 20px;
+        /* margin-top: 40px; */
+        /* top: 80px; */
     }
 }
