@@ -59,41 +59,54 @@ body {
 
 /* ======================================================= Theme */
 .theme {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+    display: inline-flex;
+    justify-content: flex-end;
+    /* width: 100px; */
     z-index: 3;
     position: fixed;
     top: 0;
-    padding: 20px;
+    right: 0;
+    background-color: rgb(86, 0, 0);
+    margin: 20px;
+    /* padding: 1px; */
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .theme button {
 
     cursor: pointer;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     height: 60px;
     width: 60px;
     background-color: unset;
 }
 
 .theme__btn-light {
-    border: 2px solid white;
+    /* border: 2px solid white; */
+    border: none;
     fill: white;
     padding: 10px;
     transition: 0.3s ease;
     visibility: hidden;
+    display: none;
+}
 
+.theme__btn-light_active{
+    display: none;
 }
 
 .theme__btn-light:hover {
     background-color: white;
-    fill: black;
+    fill: rgb(88, 0, 0);
+
 }
 
 .theme__btn-dark {
-    border: 2px solid black;
-    fill: rgb(0, 0, 0);
+    /* border: 2px solid black; */
+    border: none;
+    fill: rgb(255, 255, 255);
     padding: 10px;
     display: flex;
     justify-content: center;
@@ -101,20 +114,24 @@ body {
     transition: 0.3s ease;
 }
 
+.theme__btn-dark_active{
+    display: none;
+}
+
 .theme__btn-dark svg {
     height: 40px;
 }
 
 .theme__btn-dark:hover {
-    background-color: black;
-    fill: white;
+    background-color: rgb(255, 255, 255);
+    fill: rgb(88, 0, 0);
 }
 
 
 
 /* ======================================================== MENU */
 .menu {
-    padding-top: 50px;
+    /* padding-top: 50px; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -224,7 +241,7 @@ body {
     border-radius: 10px;
     cursor: pointer;
     background-color: rgba(30, 0, 0, 0.244);
-
+    visibility: hidden;
 }
 
 .menu__card:hover {
@@ -323,19 +340,22 @@ span {
 
 
 .body__main {
+    box-shadow: -20px 20px 20px rgba(0, 0, 0, 0.569);
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 5px solid rgb(34, 0, 0);
-    padding: 10px;
-    width: 430px;
-    border-radius: 10px;
+    width: 800px;
+    /* height: 430px; */
+    border-radius: 25px;
     background-color: rgb(80, 0, 0);
 }
 
 .body__main img {
-    width: 400px;
-    border-radius: 10px;
+    padding: 10px;
+    border: 5px solid rgb(34, 0, 0);
+    width: 800px;
+    overflow: hidden;
+    border-radius: 25px;
 }
 
 .main__text {
@@ -539,11 +559,13 @@ span {
 }
 
 .hover:hover .theme__btn-dark {
-    visibility: hidden;
+    /* visibility: hidden; */
+    display: none;
 }
 
 .hover:hover .theme__btn-light {
     visibility: visible;
+    display: block;
 }
 
 .menu__body_active-hidden{
@@ -552,9 +574,86 @@ span {
     visibility: hidden;
 }
 
+/* ================================================ Animation */
+@keyframes animationName1 {
+    0% {
+        opacity: 0;
+        left: 100px;
+    }
+
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes animationName2 {
+    0% {
+        opacity: 0;
+        left: -300px;
+    }
+
+    100% {
+        left: 0;
+        opacity: 1;
+    }
+}
+@keyframes animationName3 {
+    0% {
+        opacity: 0;
+        top: 100px;
+    }
+
+    100% {
+        top: 0;
+        opacity: 1;
+    }
+}
+.menu__body{
+    position: relative;
+}
+.menu__title{
+    animation: animationName1 2s;
+    position: relative;
+}
+
+.menu__buttons{
+    animation: animationName2 2s;
+    position: relative;
+}
+
+.menu__body{
+    position: relative;
+    animation: animationName3 2s;
+}
+
+.menu__card_animation{
+    position: relative;
+    animation: animationName2 1s;
+    visibility: visible;
+}
+
 /* ================================================ Media */
+@media screen and (max-width: 1600px) {
+    .body__main{
+        width: 600px;
+    }
+}
+@media screen and (max-width: 1400px) {
+    .body__main{
+        width: 400px;
+    }
+}
 
 @media screen and (max-width: 1030px) {
+    .body__main{
+        width: 800px;
+    }
+
+    .item1{
+        margin-bottom: 40px;
+    }
+
     .menu__body {
         display: grid;
         grid-template-columns: 1fr;
@@ -614,6 +713,10 @@ span {
 }
 
 @media screen and (max-width: 750px) {
+    .body__main{
+        width: 600px;
+    }
+
     .menu {
         padding: 0;
         padding-top: 50px;
@@ -626,7 +729,7 @@ span {
     .menu__buttons {
         width: 700px;
         display: flex;
-        flex-direction: column;
+        /* flex-direction: column; */
         align-items: center;
         justify-content: space-between;
     }
@@ -647,19 +750,21 @@ span {
     .c-desc {
         z-index: 10;
         position: fixed;
-        height: 200px;
-        width: 500px;
+        height: 300px;
+        width: 600px;
         top: 50%;
         left: 50%;
-        margin-top: -100px;
+        margin-top: -150px;
         /* Negative half of height. */
-        margin-left: -250px;
+        margin-left: -300px;
         /* Negative half of width. */
     }
 
     .c-desc__icon {
-        height: 15px;
-        width: 15px;
+        height: 30px;
+        width: 30px;
+        top: auto;
+        bottom: 0;
     }
 
     .c-desc__head {
@@ -677,9 +782,10 @@ span {
 
     .c-desc__img {
         /* background-image: url('./img/burger.png'); */
-        background-size: cover;
-        width: 150px;
-        height: 100px;
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        width: 200px;
+        height: 250px;
     }
 
     .c-desc__price span {

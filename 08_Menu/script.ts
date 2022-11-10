@@ -1,5 +1,4 @@
 
-
 // =============================================================== Get elem
 // body
 const body = document.body;
@@ -12,11 +11,12 @@ const theme__btn_dark = document.querySelector('.theme__btn-dark')
 // making arr of save there list of dishes api
 let data_num;
 
+// options for eventTarget
 const options = {
     "capture": false, // phase on that func must run
     "once": false,    // if true, event will remove himself after one running
     "passive": false, // if true, it will never call func preventDefault()
-}
+};
 
 // =============================================================== Generate new List of dishes
 
@@ -29,6 +29,9 @@ function clear() {
 // Generate element and add him
 function addElements(data) {
     for (let i: number = 0; i < data.length; i++) {
+        if(i == 20){
+            break;
+        };
         // create new div
         const newCard = document.createElement('div');
 
@@ -36,7 +39,7 @@ function addElements(data) {
         newCard.classList.add('menu__card');
         newCard.classList.add(`card_${i}`);
 
-        // add him body
+        // add elements to new card
         newCard.innerHTML = `   <div class="img_back img_back_${i}">
                                     <div class="card__img c-img_${i}"></div>
                                 </div>
@@ -71,6 +74,19 @@ function test(typeOfFood): void {
 
             // save arr of dishes
             data_num = data;
+
+            // saving all cards
+            const menu__card = document.querySelectorAll('.menu__card');
+
+            // adding to them class animation
+            let count: number = 0;
+            const t = setInterval(()=>{
+                if(count == 20){
+                    clearInterval(t);
+                };
+                menu__card[count].classList.add('menu__card_animation');
+                count++;
+            }, 100);
         }
         );
 };
@@ -78,17 +94,24 @@ function test(typeOfFood): void {
 // ================================================ Changing Card Desc
 // getting index of clicked card
 function getIndex(target): number {
-    const cardClasses = target.classList
+    // getting classes of cards
+    const cardClasses = target.classList;
+    // getting second class with number
     const cardClass = cardClasses[1];
 
-    const cardSplitted = cardClass.split('');
+    // in class used (_) to split words and numbers
+    const cardSplitted = cardClass.split('_');
+    // saving number
     const card = cardSplitted[cardSplitted.length - 1];
+    // return index number of class of card
     return card;
 };
 
 // clear card desc info
 function clearCardDesc() {
-    const c_desc = document.querySelector<HTMLElement>('.c-desc')
+    // getting card desc
+    const c_desc = document.querySelector<HTMLElement>('.c-desc');
+    // clear card
     if (c_desc) {
         c_desc.innerHTML = ``;
     };
@@ -100,8 +123,9 @@ function getCard(dataArr, index): void {
     clearCardDesc();
 
     // get card dest item
-    const c_desc = document.querySelector('.c-desc')
+    const c_desc = document.querySelector('.c-desc');
 
+    // adding element info to card desc
     if (c_desc) {
         c_desc.innerHTML = `<div class="c-desc__icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z"/></svg>
@@ -141,68 +165,70 @@ menu__buttons?.addEventListener('click', (event) => {
         switch (target) {
             case target.closest(".btn_1"):
                 // generate new list dishes 
-                test('our-foods')
+                test('our-foods');
                 break;
             case target.closest(".btn_2"):
                 // generate new list dishes 
-                test('best-foods')
+                test('best-foods');
                 break;
             case target.closest(".btn_3"):
                 // generate new list dishes 
-                test('drinks')
+                test('drinks');
                 break;
             case target.closest(".btn_4"):
-                test('pizzas')
+                test('pizzas');
                 break;
         };
-    }
+    };
     if (target) {
         switch (target) {
             case target.closest(".btn_paper_1"):
                 // generate new list dishes 
-                test('our-foods')
+                test('our-foods');
                 break;
             case target.closest(".btn_paper_2"):
-                test('best-foods')
+                test('best-foods');
                 break;
             case target.closest(".btn_paper_3"):
-                test('drinks')
+                test('drinks');
                 break;
             case target.closest(".btn_paper_4"):
-                test('pizzas')
+                test('pizzas');
                 break;
         };
-    }
+    };
     if (target) {
         switch (target) {
             case target.closest(".btn_text_1"):
-                test('our-foods')
+                test('our-foods');
                 break;
             case target.closest(".btn_text_2"):
-                test('best-foods')
+                test('best-foods');
                 break;
             case target.closest(".btn_text_3"):
-                test('drinks')
+                test('drinks');
                 break;
             case target.closest(".btn_text_4"):
-                test('pizzas')
+                test('pizzas');
                 break;
         };
-    }
-}, options)
+    };
+}, options);
 
 // Change theme of website
 theme__btn_dark?.addEventListener('click', () => {
     // adding hover class 
     if (!body.classList.contains('hover')) {
         body.classList.add('hover');
-    }
+    };
 });
 
+// Change theme of website
 theme__btn_light?.addEventListener('click', () => {
+    // adding hover class 
     if (body.classList.contains('hover')) {
         body.classList.remove('hover');
-    }
+    };
 });
 
 // generate new info on card desc
@@ -212,7 +238,7 @@ menu__body?.addEventListener('click', event => {
     // get card dest
     const c_desc = document.querySelector('.c-desc');
     // get index of clicked list card
-    const cardIndex = getIndex(target)
+    const cardIndex = getIndex(target);
 
     // gen new info on card
     getCard(data_num, cardIndex);
@@ -225,7 +251,7 @@ menu__body?.addEventListener('click', event => {
         c_desc?.classList.toggle('c-desc_active');
 
         // hide menu list
-        menu__body.classList.toggle('menu__body_active-hidden')
+        menu__body.classList.toggle('menu__body_active-hidden');
 
         // add to icon function to exit
         c_desc__icon?.addEventListener('click', event => {
@@ -235,9 +261,9 @@ menu__body?.addEventListener('click', event => {
             c_desc?.classList.toggle('c-desc_active');
 
             // unhide menu list
-            menu__body.classList.toggle('menu__body_active-hidden')
+            menu__body.classList.toggle('menu__body_active-hidden');
         });
-    }
+    };
 }, false);
 
 

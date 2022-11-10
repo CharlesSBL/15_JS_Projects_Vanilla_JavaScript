@@ -14,3 +14,5 @@ Project 5: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/05_Sid
 Project 6: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/06_Modal/
 
 Project 7: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/07_questions/index.html
+
+
