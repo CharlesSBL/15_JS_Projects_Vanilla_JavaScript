@@ -15,4 +15,4 @@ Project 6: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/06_Mod
 
 Project 7: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/07_questions/index.html
 
-
+Project 8: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/08_Menu/index.html
