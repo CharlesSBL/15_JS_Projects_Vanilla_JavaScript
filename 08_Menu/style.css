@@ -523,6 +523,58 @@ span {
     font-size: 1.2rem;
 }
 
+/* ============================================= Up Arrow */
+
+.up-button {
+    opacity: 0;
+    visibility: hidden;
+    display: inline-flex;
+    justify-content: flex-end;
+    /* width: 100px; */
+    z-index: 3;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: var(--2-color);
+    margin: 20px;
+    /* padding: 1px; */
+    border: 2px solid var(--3-color);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 1s ease;
+}
+
+.up-button button {
+    transition: 1s ease;
+    cursor: pointer;
+    /* border-radius: 10px; */
+    height: 60px;
+    width: 60px;
+    background-color: unset;
+}
+
+.up-button__arrow {
+    border: none;
+    fill: var(--1-color);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s ease;
+
+}
+
+.up-button__arrow svg {
+    transition: 1s ease;
+
+    height: 40px;
+}
+
+.up-button__arrow:hover {
+    background-color: var(--1-color);
+    fill: var(--2-color);
+}
+
 
 /* ============================================= Hover */
 
@@ -679,6 +731,18 @@ span {
     100% {
         color: red;
     }
+}
+
+.up-button__arrow {
+    animation: animationName2 1s infinite alternate;
+    transition: 1s ease;
+
+}
+
+.up-button_active {
+    opacity: 1;
+    transition: 1s ease;
+    visibility: visible;
 }
 
 .card__span {

@@ -9,7 +9,7 @@ const menu__buttons = document.querySelector('.menu__buttons');
 const theme__btn_light = document.querySelector('.theme__btn-light')
 const theme__btn_dark = document.querySelector('.theme__btn-dark')
 // making arr of save there list of dishes api
-let data_num;
+let data_num: any;
 
 // options for eventTarget
 const options = {
@@ -27,9 +27,9 @@ function clear() {
     };
 };
 // Generate element and add him
-function addElements(data) {
+function addElements(data: any) {
     for (let i: number = 0; i < data.length; i++) {
-        if(i == 20){
+        if (i == 20) {
             break;
         };
         // create new div
@@ -62,7 +62,7 @@ function addElements(data) {
     };
 };
 // getting arr of dishes api
-function test(typeOfFood): void {
+function test(typeOfFood: any): void {
     fetch(`https://ig-food-menus.herokuapp.com/${typeOfFood}`)
         .then((response) => response.json())
         .then((data) => {
@@ -80,8 +80,8 @@ function test(typeOfFood): void {
 
             // adding to them class animation
             let count: number = 0;
-            const t = setInterval(()=>{
-                if(count == 20){
+            const t = setInterval(() => {
+                if (count == 20) {
                     clearInterval(t);
                 };
                 menu__card[count].classList.add('menu__card_animation');
@@ -93,7 +93,7 @@ function test(typeOfFood): void {
 
 // ================================================ Changing Card Desc
 // getting index of clicked card
-function getIndex(target): number {
+function getIndex(target: any): number {
     // getting classes of cards
     const cardClasses = target.classList;
     // getting second class with number
@@ -118,7 +118,7 @@ function clearCardDesc() {
 };
 
 // generate new info on card
-function getCard(dataArr, index): void {
+function getCard(dataArr: any, index: any): void {
     // clear card desc info
     clearCardDesc();
 
@@ -268,7 +268,16 @@ menu__body?.addEventListener('click', event => {
     };
 }, false);
 
+const up_button = document.querySelector('.up-button');
 
+window.addEventListener("scroll", () => {
+    up_button?.classList.toggle('up-button_active', window.scrollY > 500);
+});
+
+up_button?.addEventListener("click", () => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+});
 
 
 

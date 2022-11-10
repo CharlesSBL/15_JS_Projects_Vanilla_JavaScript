@@ -234,3 +234,11 @@ menu__body === null || menu__body === void 0 ? void 0 : menu__body.addEventListe
     }
     ;
 }, false);
+var up_button = document.querySelector('.up-button');
+window.addEventListener("scroll", function () {
+    up_button === null || up_button === void 0 ? void 0 : up_button.classList.toggle('up-button_active', window.scrollY > 500);
+});
+up_button === null || up_button === void 0 ? void 0 : up_button.addEventListener("click", function () {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+});
