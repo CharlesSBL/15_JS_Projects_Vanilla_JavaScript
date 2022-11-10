@@ -619,15 +619,18 @@ span {
 }
 
 @keyframes animationName4 {
-    0% {
-    }
+    0% {}
 
     100% {
-        color: rgb(233, 0, 0);
+        color: rgb(189, 0, 0);
     }
 }
 
-.main__text h1{
+.card__span {
+    animation: animationName4 1s infinite alternate;
+}
+
+.main__text h1 {
     animation: animationName4 2s infinite alternate;
 }
 
@@ -1254,3 +1257,4 @@ span {
         flex-direction: column;
     }
 }
+
