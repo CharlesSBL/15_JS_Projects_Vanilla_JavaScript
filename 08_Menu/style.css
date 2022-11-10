@@ -1177,6 +1177,8 @@ span {
         flex-direction: column;
     }
 
+    
+
     .c-desc__icon {
         top: unset;
         bottom: unset;
@@ -1315,7 +1317,7 @@ span {
     }
 
     .c-desc__left {
-        margin-top: 20px;
+        margin-top: 0px;
     }
 }
 
