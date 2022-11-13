@@ -36,18 +36,6 @@ module.exports = {
           "sass-loader",
         ],
       },
-      {
-        test: /\.(png|jpe?g|gif|mp4)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-                name: "[name].[ext]",
-                outputPath: "video"
-            }
-          },
-        ],
-      },
     ],
   },
 
@@ -85,17 +73,11 @@ module.exports = {
 
   devtool: "inline-source-map",
   devServer: {
-    port:8080,
-    open:true,
-    compress:true,
-    hot:true,
-    liveReload:true,
-    // watchFiles: ["src/*.html"],
-    // static: "./dist",
-    // hot: true,
+    static: "./dist",
+    hot: true,
   },
   optimization: {
-    // runtimeChunk: "single",
+    runtimeChunk: "single",
   },
 
   mode: 'development',

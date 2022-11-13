@@ -1,0 +1,179 @@
+
+
+<<<<<<<< Webpack + Typescript + Sass + Handlebars >>>>>>>>>>>>
+
+0. tutorial from: https://www.youtube.com/watch?v=uOg2WeG9aK0
+
+yarn init
+yarn    => download all depends
+yarn add (application) => installing (application)
+yarn build  => compile whole project
+yarn serve => turn on the server and auto compile whole project
+
+
+
+(T:) => terminal
+1. T: yarn init
+2. mkdir (./src && ./view)
+3. T: yarn add webpack webpack-cli
+4. T: yarn add typescript ts-loader
+5. T: yarn tsc -init    => make tsconfig.json 
+6. open site: webpack/guides/typescript; copy: tsconfig.json options to own project
+7. mk doc (webpack.config.js); copy from guide: webpack.config.js to own project
+8. mk doc (./index.html);
+
+9. add code in ./package.json: ("scripts":{ "build": "webpack" },)
+    9.1 add to webpack.config (mode: 'development',)
+    9.2 change (output: path to dir "disc")
+    9.3 add code, after output.path (clean:true)
+    9.4 add (entry: { sample: "./src/index.ts", })
+    9.5 change (filename: '[name].js',)
+
+10. T: yarn webpack 
+11. T: yarn build
+
+12. add code (./package.json) => (scripts: "serve": "webpack --watch")
+13. T: yarn serve
+
+14. go to web (handlebars) for info how use "handlebars"
+15. go to web (webpack/loaders/templating) find (handlebars-loader)
+15. go to web (npm/handlebars) and 
+16. T: yarn add handlebars handlebars-loader
+17. add to webpack ( { test: /\.hbs$/, loader: "handlebars-loader" })
+
+18. got to web (webpack/plugins) find (HtmlWebpackPlugin)
+19. T: yarn add html-webpack-plugin
+20. add to webpack{
+    const HtmlWebpackPlugin = require('html-webpack-plugin');
+    plugins: [new HtmlWebpackPlugin()],
+}
+21.1 find plugin documentation there
+21.2 add options to webpack plugin {
+    plugins: [new HtmlWebpackPlugin({
+        title: 'My App',
+        filename: 'assets/admin.html'
+    })],
+}
+
+22. mk doc: ./view/index.hbs
+23. add in plugin {
+    plugins: [new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: 'view/index.hbs',
+    })],
+}
+24. add to ./view/index.hbs => title " {{htmlWebpackPlugin.options.title}} "
+
+25. go to (webpack/devServer)
+26. add to (/webpack.js) {
+    devtool: "inline-source-map",
+    devServer: {
+        static: "./dist",
+        hot: true,
+    },
+    optimization: {
+        runtimeChunk: "single",
+    },
+}
+
+27. T: yarn add webpack-dev-server
+28. change in (package.json){
+    "serve": "webpack serve --open",
+}
+
+29. Add second code to (./webpack) plugins:{
+    new HtmlWebpackPlugin({
+      title: 'About Page',
+      filename: './about.html',
+      template: './view/about.hbs',
+    }),
+}
+
+30. Reload server T: yarn serve
+
+31. Change code in (./webpack) plugins: {
+    plugins: [].concat(
+        ["index", "about"].map(page => {
+            return new HtmlWebpackPlugin({
+                title: `${page} Page`,
+                filename: `${page}.html`,
+                template: `./view/${page}.hbs`,
+            });
+        }),
+    ),
+}
+
+32. go to web (webpack/loaders/sass-loader)
+33. T: yarn add sass-loader sass
+
+34. add code to (./webpack.js) plugins:{
+    return new HtmlWebpackPlugin({
+        inject: 'body',
+    })
+}
+35. add code to (./webpack.js) rules:{
+    {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+    },
+}
+
+36. go to web (webpack/plugins) miniCssExtractPlugin
+37. T: yarn add mini-css-extract-plugin
+
+38. change code in (webpack.js) rules:{
+    "style-loader" (change to)=> MiniCssExtractPlugin.loader
+}
+39. add to webpack.js {
+    const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+}
+40. T: yarn add css-loader
+
+41. mk doc (./src/style.scss)
+42. add code to (./src/index.ts){
+    import './style.scss';
+}
+43. add code to (webpack.js) plugins:{
+    new MiniCssExtractPlugin(),
+}
+
+44. add code to (./webpack.js) entry: {
+    main: './src/main.ts',
+    second: './src/second.ts',
+}
+
+45.1 mk doc (./src/main.ts)
+45.2 mk doc (./src/second.ts)
+
+46. change code (./webpack.js) plugins: {
+    plugins: [
+    new MiniCssExtractPlugin(),
+  ].concat(
+    ["index", "about", "contact-us"].map((page, index) => {
+      if(index == 1){
+        return new HtmlWebpackPlugin({
+          inject: 'body',
+          title: `${page} Page`,
+          filename: `${page}.html`,
+          template: `./view/${page}.hbs`,
+          chunks: ["second"],
+        });
+      }
+
+      return new HtmlWebpackPlugin({
+        inject: 'body',
+        title: `${page} Page`,
+        filename: `${page}.html`,
+        template: `./view/${page}.hbs`,
+        chunks: ["main"],
+      });
+    }),
+  ),
+}
