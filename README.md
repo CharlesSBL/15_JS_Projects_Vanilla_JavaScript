@@ -22,3 +22,6 @@ Project 7: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/07_que
 
 MENU Project
 Project 8: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/08_Menu/index.html
+
+Video Project
+Project 9: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/09_video/public/index.html
