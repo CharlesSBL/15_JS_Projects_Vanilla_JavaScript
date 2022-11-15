@@ -81,5 +81,5 @@ module.exports = {
         liveReload: true,
     },
 
-    mode: 'production',
+    mode: 'development',
 };
