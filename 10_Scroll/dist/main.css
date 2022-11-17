@@ -1,0 +1,178 @@
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*********************************************************************************************************/
+@keyframes anim1 {
+  0% {
+    opacity: 0;
+    transform: translate(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+:root {
+  --color-1: black;
+  --color-2: rgb(255, 255, 255);
+  --color-3: rgb(200, 100, 200);
+  --color-4: rgb(255, 200, 100);
+  --color-5: rgb(100, 200, 255);
+  --transition-1: 0.3s ease;
+  --transition-2: 1s ease;
+  --anim-1: anim1 1s ease;
+  --anim-2: animationUp2 2s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: 5px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: var(--color-1);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--color-2);
+  border-radius: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-2);
+  color: var(--color-1);
+}
+body a {
+  text-decoration: none;
+}
+body li {
+  list-style: none;
+}
+body header {
+  height: 100vh;
+}
+body header .nav-bar {
+  padding: 10px 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-1);
+  color: var(--color-2);
+}
+body header .nav-bar .nav-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+body header .nav-bar .nav-left .icon svg {
+  transition: 0.5s ease;
+  height: 50px;
+  width: 50px;
+  fill: var(--color-2);
+  cursor: pointer;
+}
+body header .nav-bar .nav-left .icon svg:hover {
+  fill: var(--color-5);
+}
+body header .nav-bar .nav-left .icon-burger {
+  display: none;
+}
+body header .nav-bar .nav-left .icon-burger svg {
+  height: 30px;
+  width: 30px;
+  fill: var(--color-2);
+}
+body header .nav-bar .nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+body header .nav-bar .nav-right .list-item {
+  width: 100%;
+  height: 100%;
+  margin: 0 25px;
+  position: relative;
+  transition: 0.5s ease;
+  border-radius: 10px;
+}
+body header .nav-bar .nav-right .list-item a {
+  color: var(--color-2);
+}
+@media screen and (max-width: 800px) {
+  body header .nav-bar {
+    flex-direction: column;
+  }
+  body header .nav-bar .nav-left {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  body header .nav-bar .nav-left .icon-burger {
+    display: block;
+    cursor: pointer;
+    transition: 1s ease;
+  }
+  body header .nav-bar .nav-left .icon-burger svg {
+    transition: 1s ease;
+  }
+  body header .nav-bar .nav-left .icon-burger:hover {
+    opacity: 0.8;
+  }
+  body header .nav-bar .nav-left .icon-burger:hover svg {
+    transition: 1s ease;
+    transform: rotate(90deg);
+    fill: var(--color-5);
+  }
+  body header .nav-bar .nav-right {
+    position: relative;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    transition: 1s ease;
+    height: 0px;
+    opacity: 0;
+    visibility: none;
+  }
+  body header .nav-bar .nav-right .list-item {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    margin: 0 0px;
+  }
+  body header .nav-bar .nav-right .list-item:hover {
+    background-color: var(--color-4);
+  }
+  body header .nav-bar .nav-right .list-item:hover a {
+    color: var(--color-1);
+  }
+  body header .nav-bar .nav-right .list-item:active {
+    opacity: 0.5;
+  }
+  body header .nav-bar .nav-right_active {
+    height: 200px;
+    transform: translate(0, 0px);
+    opacity: 1;
+    visibility: visible;
+  }
+}
+body header .background {
+  background-image: url(c8bc019e794b6778f049.jpg);
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
