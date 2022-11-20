@@ -7,7 +7,7 @@
 </head>
 
 <body>
-    <header>
+    <header id="home">
         <nav class="nav-bar">
             <div class="nav-left">
                 <div class="icon">
@@ -26,28 +26,50 @@
                 </div>
             </div>
             <ul class="nav-right">
-                <li class="list-item">
-                    <a href="#">Home</a>
+                <li class="list-item item_1">
+                    <a class="scroll-link" href="#home">Home</a>
                 </li>
-                <li class="list-item">
-                    <a href="#">About</a>
+                <li class="list-item item_2">
+                    <a class="scroll-link" href="#about">About</a>
+                    <!-- <a href="#">About</a> -->
                 </li>
-                <li class="list-item">
-                    <a href="#">Services</a>
+                <li class="list-item item_3">
+                    <a class="scroll-link" href="#services">Services</a>
+                    <!-- <a href="#">Services</a> -->
                 </li>
-                <li class="list-item">
-                    <a href="#">Tours</a>
+                <li class="list-item item_4">
+                    <a class="scroll-link" href="#tours">Tours</a>
+                    <!-- <a href="#">Tours</a> -->
                 </li>
             </ul>
         </nav>
-        <div class="background">
-            <!-- <img src="./images/Background_img.jpg" alt=""> -->
+        <div class="header__bottom">
+            <h1>Scroll Project</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati blanditiis, ipsam nobis repellendus
+                dignissimos distinctio labore quaerat mollitia nostrum provident quae harum sequi ullam quis commodi
+                natus sunt officia suscipit?</p>
+            <button>Explore Tours</button>
         </div>
     </header>
-    <section>
-
+    <div class="arrow">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) -->
+            <path
+                d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z" />
+        </svg>
+    </div>
+    <section id="about">
+        <h1>about-<span>us</span></h1>
     </section>
-    <footer></footer>
+    <section id="services">
+        <h1><span>our</span>-services</h1>
+    </section>
+    <section id="tours">
+        <h1>featured-<span>tours</span></h1>
+    </section>
+    <footer>
+        <p>Copyright © Backroads Travel Tours Company <span class="date">0000</span>. All Rights Reserved</p>
+    </footer>
 </body>
 
 <script>
