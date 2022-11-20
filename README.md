@@ -25,3 +25,6 @@ Project 8: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/08_Men
 
 Video Project
 Project 9: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/09_video/public/index.html
+
+Scroll Project
+Project 10: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/10_Scroll/dist/index.html
