@@ -31,3 +31,9 @@ Project 10: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/10_Sc
 
 Scroll Tabs ___
 Project 11: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/11_Tabs/dist/index.html
+
+Countdown_Timer ___
+Project 12: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/12_Countdown_Timer/dist/index.html
+
+Lorem-Ipsum ___
+Project 13: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/13_Lorem-Ipsum/dist/index.html
