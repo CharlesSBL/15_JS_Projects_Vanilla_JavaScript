@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+</head>
+
+<body>
+    <header>
+        <div class="generator">
+            <h1 class="generator__title">TIRED OF BORING LOREM IPSUM?</h1>
+            <form class="generator__body">
+                <label class="generator__count-name" for="amount">paragraphs:</label>
+                <input type="number" name="amount" id="amount" maxlength="1" placeholder="5">
+                <button type="submit" class="btn">generate</button>
+            </form>
+            <div class="text-container"></div>
+        </div>
+    </header>
+</body>
+
+<script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker
+                .register("service-worker.js")
+                .then((registration) => {
+                    console.log("Service Worker registered: ", registration);
+                })
+                .catch((registrationError) => {
+                    console.error("Service Worker registration failed: ", registrationError);
+                });
+        });
+    }
+</script>
+
+</html>
