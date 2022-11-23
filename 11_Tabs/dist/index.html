@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+<script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+
+<body>
+    <header>
+        <div class="about">
+            <div class="about__head">
+                <h1 class="head__title">About</h1>
+                <p class="head__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, aperiam!</p>
+            </div>
+            <div class="about__body">
+                <div class="body__left">
+                    <div class="body__img"></div>
+                </div>
+                <div class="body__right">
+                    <ul class="body__btn-list">
+                        <li class="body__list-item item_1">
+                            <button class="body__btn btn_1 body__btn-active">History</button>
+                        </li>
+                        <li class="body__list-item item_2">
+                            <button class="body__btn btn_2 body__btn-un_active">Vision</button>
+                        </li>
+                        <li class="body__list-item item_3">
+                            <button class="body__btn btn_3 body__btn-un_active">Goals</button>
+                        </li>
+                    </ul>
+                    <div class="body__info">
+                        <h3 class="info__title">History</h3>
+                        <p class="info__text">I'm baby wolf pickled schlitz try-hard normcore marfa man bun mumblecore
+                            vice pop-up XOXO lomo kombucha glossier bicycle rights. Umami kinfolk salvia jean shorts
+                            offal venmo. Knausgaard tilde try-hard, woke fixie banjo man bun. Small batch tumeric
+                            mustache tbh wayfarers 8-bit shaman chartreuse tacos. Viral direct trade hoodie ugh
+                            chambray, craft beer pork belly flannel tacos single-origin coffee art party migas plaid
+                            pop-up.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+
+<script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker
+                .register("service-worker.js")
+                .then((registration) => {
+                    console.log("Service Worker registered: ", registration);
+                })
+                .catch((registrationError) => {
+                    console.error("Service Worker registration failed: ", registrationError);
+                });
+        });
+    }
+</script>
+
+</html>

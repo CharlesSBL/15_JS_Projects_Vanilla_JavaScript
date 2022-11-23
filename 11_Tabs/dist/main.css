@@ -1,0 +1,152 @@
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/style.scss ***!
+  \*********************************************************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: 5px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: var(--color-1);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--color-2);
+  border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+:root {
+  --color-1: white;
+  --color-2: rgb(245, 245, 245);
+  --color-3: rgb(214, 224, 228);
+  --color-4: rgb(141, 160, 172);
+  --color-5: rgb(84, 107, 132);
+  --color-6: rgb(0, 130, 200);
+  --transition-1: 0.3s ease;
+  --transition-2: 1s ease;
+  --anim-1: anim1 1s ease;
+  --anim-2: animationUp2 2s;
+}
+
+body header {
+  height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--color-2);
+  padding-top: 30px;
+}
+body header .about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 1220px;
+  width: 100%;
+  font-size: 1.2rem;
+  color: var(--color-5);
+  letter-spacing: 1px;
+}
+body header .about .about__head {
+  margin-bottom: 50px;
+  text-align: center;
+}
+body header .about .about__head .head__title {
+  color: black;
+}
+body header .about .about__body {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 373px;
+}
+body header .about .about__body .body__left {
+  width: 600px;
+  height: 330px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+body header .about .about__body .body__left .body__img {
+  background-image: url(c8bc019e794b6778f049.jpg);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+body header .about .about__body .body__right {
+  background-color: var(--color-1);
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  color: var(--color-5);
+}
+body header .about .about__body .body__right .body__btn-list {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body header .about .about__body .body__right .body__btn-list .body__list-item {
+  width: 100%;
+}
+body header .about .about__body .body__right .body__btn-list .body__list-item .body__btn {
+  width: 100%;
+  background-color: var(--color-3);
+  color: var(--color-2);
+  border: none;
+  font-size: 1.2rem;
+  padding: 20px 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+body header .about .about__body .body__right .body__btn-list .body__list-item .body__btn-un_active:hover {
+  background-color: rgb(223, 243, 255);
+  color: rgb(79, 190, 255);
+}
+body header .about .about__body .body__right .body__btn-list .body__list-item .body__btn-un_active:active {
+  opacity: 0.8;
+}
+body header .about .about__body .body__right .body__btn-list .body__list-item .body__btn-active {
+  width: 100%;
+  border: none;
+  font-size: 1.2rem;
+  padding: 20px 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: var(--color-1);
+  color: black;
+  cursor: default;
+}
+body header .about .about__body .body__right .body__info {
+  padding: 25px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+body header .about .about__body .body__right .body__info .info__title {
+  margin-bottom: 15px;
+  color: black;
+}
