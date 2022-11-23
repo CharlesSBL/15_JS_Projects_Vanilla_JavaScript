@@ -28,3 +28,6 @@ Project 9: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/09_vid
 
 Scroll Project ___
 Project 10: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/10_Scroll/dist/index.html
+
+Scroll Tabs ___
+Project 11: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/11_Tabs/dist/index.html
