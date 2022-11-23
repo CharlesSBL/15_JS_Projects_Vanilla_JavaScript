@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+<script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+
+<body>
+    <header>
+        <div class="header__left">
+            <div class="header__img"></div>
+        </div>
+        <div class="header__right">
+            <div class="header__title">
+                <h1 class="title__head">OLD IPHONE GIVEAWAY</h1>
+                <p class="title__body">Giveaway Ends On <span class="title__body-date"></span></p>
+            </div>
+            <div class="header__info">
+                <p class="info__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit molestiae
+                    cum libero atque ut voluptate qui consectetur aliquid incidunt voluptatem quos, dolore, non commodi
+                    quaerat aliquam eligendi, quisquam totam blanditiis.</p>
+            </div>
+            <ul class="header__date">
+                <li class="list-item date_1 days">
+                    <p class="item__count count-days">00</p>
+                    <p class="item__name name-days">days</p>
+                </li>
+                <li class="list-item date_2 hours">
+                    <p class="item__count count-hours">00</p>
+                    <p class="item__name name-hours">hours</p>
+                </li>
+                <li class="list-item date_3 mins">
+                    <p class="item__count count-mins">00</p>
+                    <p class="item__name name-mins">mins</p>
+                </li>
+                <li class="list-item date_4 secs">
+                    <p class="item__count count-secs">00</p>
+                    <p class="item__name name-secs">secs</p>
+                </li>
+            </ul>
+        </div>
+    </header>
+</body>
+
+<script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker
+                .register("service-worker.js")
+                .then((registration) => {
+                    console.log("Service Worker registered: ", registration);
+                })
+                .catch((registrationError) => {
+                    console.error("Service Worker registration failed: ", registrationError);
+                });
+        });
+    }
+</script>
+
+</html>

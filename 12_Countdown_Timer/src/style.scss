@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    width: 5px;
+}
+
+html::-webkit-scrollbar-track {
+    background-color: var(--color-1);
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--color-2);
+    border-radius: 10px;
+}
+
+:root {
+    --color-1: white;
+    --color-2: rgb(245, 245, 245);
+    --color-3: rgb(214, 224, 228);
+    --color-4: rgb(141, 160, 172);
+    --color-5: rgb(84, 107, 132);
+    --color-6: rgb(0, 130, 200);
+
+    --transition-1: 0.3s ease;
+    --transition-2: 1s ease;
+
+    --anim-1: anim1 1s ease;
+    --anim-2: animationUp2 2s;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &::after {
+        z-index: -1;
+        content: '';
+        position: absolute;
+        background-color: var(--color-2);
+        width: 200vh;
+        height: 200vh;
+        border-radius: 50%;
+        top: -80vh;
+        left: 80vh;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 1100px;
+        position: relative;
+
+
+        .header__left {
+            width: 500px;
+
+            .header__img {
+                background-image: url('./assets/photo.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 320px;
+                width: 500px;
+                border-radius: 10px;
+                box-shadow: -5px 5px 0px var(--color-6);
+            }
+        }
+
+        .header__right {
+            width: 500px;
+            font-size: 1.2rem;
+            height: 320px;
+
+            .header__title {
+                margin-bottom: 20px;
+
+                .title__head {
+                    color: var(--color-6);
+                }
+
+                .title__body {}
+            }
+
+            .header__info {
+                margin-bottom: 20px;
+                color: var(--color-5);
+            }
+
+            .header__date {
+                display: flex;
+                align-items: center;
+                justify-content: space-around;
+                width: 100%;
+
+                .list-item {
+                    text-align: center;
+                    background-color: var(--color-5);
+                    margin: 0 10px;
+                    padding: 25px 25px;
+                    border-radius: 10px;
+                    font-size: 2rem;
+                    color: var(--color-3);
+                    box-shadow: -5px 5px 0px var(--color-6);
+                    transition: 0.3s ease;
+
+                    &:hover {
+                        background-color: var(--color-3);
+                        color: var(--color-5);
+                    }
+                }
+            }
+        }
+    }
+}
