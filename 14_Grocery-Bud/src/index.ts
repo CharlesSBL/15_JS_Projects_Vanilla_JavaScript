@@ -45,7 +45,7 @@ function idGen(elem: HTMLElement, valu: string) {
     // add to array in "local storage", a "new list item"
     addToLocalStorage(newId, valu);
 };
-
+// gen new item with saving and return option
 function genNewItem(place: HTMLElement, valu: string): HTMLElement {
     const newElem = createElem({
         type: 'article',
@@ -88,7 +88,6 @@ function genNewItem(place: HTMLElement, valu: string): HTMLElement {
 
     return newElem;
 };
-
 // func to create list item
 function listItem(val: string) {
     // getting item list container
@@ -147,9 +146,7 @@ function listItem(val: string) {
         submit__btn.addEventListener('click', eventRewriteItem);
     });
 };
-
-
-
+// event to create new "list item" 
 function eventCreateItem(ev: Event) {
     // stopping refresh site 
     ev.preventDefault();
