@@ -24,10 +24,6 @@ createStyle({
 */
 
 
-const arr: string[] = ['qwe'];
-const arr2: Object[] = [{ 'qwe': 123 }, '123'];
-
-
 // ************************** local storage ******************************
 
 function getLocalStorage() {
@@ -147,7 +143,7 @@ function listItem(val: string) {
         const alertElem = getElem('.card__alert');
         alertElem.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
         alertElem.innerHTML = 'Item removed';
-        
+
         setTimeout(() => {
             alertElem.classList.add('card__alert-active');
             setTimeout(() => {
@@ -208,6 +204,27 @@ function listItem(val: string) {
                 alertElem.classList.remove('card__alert-active');
             }, 1000);
         }, 0);
+
+        // =========================== Getting old arr from local storage
+        // rewrite in "local storage" "arr obj" witch contain selected "list item"
+        const list: any[] = getLocalStorage();
+
+        // saving new arr without removed list item
+        const filteredList = list.map(function (obj, index, arr) {
+            if (index == itemIndex) {
+                return {
+                    id: newId,
+                    value: valueNew,
+                }
+            };
+            return obj;
+        });
+
+        // clear old local storage
+        localStorage.clear()
+
+        // adding to local storage new one
+        localStorage.setItem("list", JSON.stringify(filteredList));
     };
 
     // adding event to rewrite-btn witch rewrite its own elem
@@ -288,5 +305,17 @@ getElem('.card__clear-btn').addEventListener('click', () => {
     });
 
     getElem('.card__clear-btn').classList.remove('card__clear-btn-active');
+
+    // =================================== alert animation
+    const alertElem = getElem('.card__alert');
+    alertElem.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
+    alertElem.innerHTML = 'Item removed';
+
+    setTimeout(() => {
+        alertElem.classList.add('card__alert-active');
+        setTimeout(() => {
+            alertElem.classList.remove('card__alert-active');
+        }, 1000);
+    }, 0);
 });
 
