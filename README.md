@@ -37,3 +37,6 @@ Project 12: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/12_Co
 
 Lorem-Ipsum ___
 Project 13: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/13_Lorem-Ipsum/dist/index.html
+
+Grocery-Bud ___
+Project 14: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/14_Grocery-Bud/dist/index.html
