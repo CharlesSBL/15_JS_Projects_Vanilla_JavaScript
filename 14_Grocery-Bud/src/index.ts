@@ -254,12 +254,26 @@ function listItem(val: string) {
     });
 };
 // event to create new "list item" 
-function eventCreateItem(ev: Event) {
+function eventCreateItem(ev: Event): void {
     // stopping refresh site 
     ev.preventDefault();
 
     // getting text input
     const input__grocery = document.querySelector('.card__grocery') as HTMLInputElement;
+
+    if(input__grocery.value == ''){
+        const alertElem = getElem('.card__alert');
+        alertElem.style.backgroundColor = 'rgba(255, 200, 200, 1)';
+        alertElem.innerHTML = 'Type Something';
+
+        setTimeout(() => {
+            alertElem.classList.add('card__alert-active');
+            setTimeout(() => {
+                alertElem.classList.remove('card__alert-active');
+            }, 500);
+        }, 0);
+        return undefined;
+    };
 
     // saving text input
     const value: string = input__grocery.value;
