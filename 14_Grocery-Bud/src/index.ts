@@ -24,7 +24,30 @@ createStyle({
 */
 
 
+const arr: string[] = ['qwe'];
+const arr2: Object[] = [{ 'qwe': 123 }, '123'];
 
+
+// ************************** local storage ******************************
+
+function getLocalStorage() {
+    // return array(list) of saved items in local storage
+    return localStorage.getItem("list")
+        ? JSON.parse(localStorage.getItem("list"))
+        : [];
+};
+
+// add to local storage array with new items in array
+function addToLocalStorage(id: string, value: string) {
+    // save new list item 
+    const grocery = { id, value };
+    // get list of items
+    const items = getLocalStorage();
+    // add there new list item
+    items.push(grocery);
+    // push new list to local storage
+    localStorage.setItem("list", JSON.stringify(items));
+};
 
 
 // =================================== Functions ===================================
@@ -44,6 +67,8 @@ function idGen(elem: HTMLElement, valu: string) {
 
     // add to array in "local storage", a "new list item"
     addToLocalStorage(newId, valu);
+
+    return newId;
 };
 // gen new item with saving and return option
 function genNewItem(place: HTMLElement, valu: string): HTMLElement {
@@ -93,11 +118,15 @@ function listItem(val: string) {
     // getting item list container
     const card__grocery_list = getElem('.card__grocery-list');
 
+    // saving index of item
+    const allItem = document.querySelectorAll('.card__grocery-item');
+    const itemIndex = allItem.length;
+
     // creating new elem
     const newElem = genNewItem(card__grocery_list, val);
 
     // generate new id for new elem
-    idGen(newElem, val);
+    const newId = idGen(newElem, val);
 
     // getting rewrite button from new elem
     const rewriteBtn = newElem.querySelector('.grocery-item__edit-btn') as HTMLButtonElement;
@@ -108,7 +137,39 @@ function listItem(val: string) {
     // adding event to del-btn witch delete its own elem
     delBtn.addEventListener('click', (ev) => {
         newElem.remove();
-        localStorage.clear();
+
+        const elemArr = document.querySelectorAll('.card__grocery-item');
+        if (elemArr.length == 0) {
+            getElem('.card__clear-btn').classList.remove('card__clear-btn-active');
+        };
+
+        // =================================== alert animation
+        const alertElem = getElem('.card__alert');
+        alertElem.style.backgroundColor = 'rgba(255, 0, 0, 0.5)';
+        alertElem.innerHTML = 'Item removed';
+        
+        setTimeout(() => {
+            alertElem.classList.add('card__alert-active');
+            setTimeout(() => {
+                alertElem.classList.remove('card__alert-active');
+            }, 1000);
+        }, 0);
+
+        // =========================== Getting old arr from local storage
+        const list: any[] = getLocalStorage();
+
+        // saving new arr without removed list item
+        const filteredList = list.filter(function (obj, index, arr) {
+            if (index != itemIndex) {
+                return obj;
+            };
+        });
+
+        // clear old local storage
+        localStorage.clear()
+
+        // adding to local storage new one
+        localStorage.setItem("list", JSON.stringify(filteredList));
     });
 
     // getting title
@@ -135,6 +196,18 @@ function listItem(val: string) {
 
         // adding old event again
         submit__btn.addEventListener('click', eventCreateItem);
+
+        // alert animation
+        const alertElem = getElem('.card__alert');
+        alertElem.style.backgroundColor = 'rgba( 0, 0, 255, 0.5)';
+        alertElem.innerHTML = 'Item rewrite';
+
+        setTimeout(() => {
+            alertElem.classList.add('card__alert-active');
+            setTimeout(() => {
+                alertElem.classList.remove('card__alert-active');
+            }, 1000);
+        }, 0);
     };
 
     // adding event to rewrite-btn witch rewrite its own elem
@@ -160,43 +233,60 @@ function eventCreateItem(ev: Event) {
     // create list item 
     listItem(value);
 
+    // alert animation
+    const alertElem = getElem('.card__alert');
+
+    setTimeout(() => {
+        alertElem.classList.add('card__alert-active');
+        alertElem.style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
+        alertElem.innerHTML = 'Item added';
+
+        setTimeout(() => {
+            alertElem.classList.remove('card__alert-active');
+        }, 1000);
+    }, 0);
+
     // reset the text input field
     input__grocery.value = '';
+
+    // getting clear btn
+    const card__clear_btn = getElem('.card__clear-btn');
+
+    // adding selector to him
+    card__clear_btn.classList.add('card__clear-btn-active');
 };
 
-
-
-
-
-// ************************** local storage ******************************
-
-function getLocalStorage() {
-    // return array(list) of saved items in local storage
-    return localStorage.getItem("list")
-        ? JSON.parse(localStorage.getItem("list"))
-        : [];
+// ==============================================
+// When window will be restart, items from local storage will be recreated 
+const list: any[] = getLocalStorage();
+if (list.length > 0) {
+    // clear local storage to add new one
+    localStorage.clear();
+    // add clear btn
+    getElem('.card__clear-btn').classList.add('card__clear-btn-active');
+    // create new items from local storage
+    list.forEach((key) => {
+        listItem(key.value);
+    });
 };
-
-// add to local storage array with new items in array
-function addToLocalStorage(id: string, value: string) {
-    // save new list item 
-    const grocery = { id, value };
-    // get list of items
-    const items = getLocalStorage();
-    // add there new list item
-    items.push(grocery);
-    // push new list to local storage
-    localStorage.setItem("list", JSON.stringify(items));
-};
-
-
 
 
 
 // =================================== Event Listeners ===================================
 
-
 // add event listener to btn and the text input
 // for adding new item list 
 submit__btn.addEventListener('click', eventCreateItem);
+
+// removing all items event
+getElem('.card__clear-btn').addEventListener('click', () => {
+    localStorage.clear();
+    const elemArr = document.querySelectorAll('.card__grocery-item');
+
+    elemArr.forEach(key => {
+        key.remove();
+    });
+
+    getElem('.card__clear-btn').classList.remove('card__clear-btn-active');
+});
 

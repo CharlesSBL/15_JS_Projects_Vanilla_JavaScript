@@ -174,7 +174,7 @@ p {
 @keyframes anim {
     0% {
         opacity: 0;
-        transform: translate(-100px, 0px);
+        transform: translate(0px, 50px);
     }
 
     100% {
@@ -202,6 +202,7 @@ body {
             padding-top: 50px;
 
             .card__alert {
+                transform: scale(0.8);
                 position: absolute;
                 top: 18px;
                 left: 50%;
@@ -289,6 +290,7 @@ body {
                         width: 350px;
                         border-radius: 10px;
                         overflow: hidden;
+                        animation: anim 0.5s ease;
 
                         &:hover {
                             .grocery-item__title {
