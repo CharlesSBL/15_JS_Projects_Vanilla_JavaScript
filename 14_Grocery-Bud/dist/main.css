@@ -179,15 +179,14 @@ p {
 }
 body header {
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: 100px;
 }
 body header .card {
-  transform: scale(1.5);
+  margin: 0 auto;
   background-color: var(--clr-white);
   padding: 25px;
   display: grid;
+  width: 500px;
   place-items: center;
   border-radius: 5px;
   box-shadow: -5px 5px 25px rgba(0, 0, 0, 0.15);
@@ -195,14 +194,13 @@ body header .card {
   padding-top: 50px;
 }
 body header .card .card__alert {
-  transform: scale(0.8);
   position: absolute;
   top: 18px;
   left: 50%;
-  margin-left: -160px;
+  margin-left: -175px;
   font-size: 1rem;
   letter-spacing: 5px;
-  width: 80%;
+  width: 350px;
   height: 20px;
   border-radius: 5px;
   display: flex;
@@ -242,6 +240,7 @@ body header .card .card__item .card__grocery {
   flex: 1;
   background-color: var(--clr-primary-10);
   border-radius: 5px 0px 0px 5px;
+  transition: 0.2s ease;
 }
 body header .card .card__item .card__submit-btn {
   background-color: var(--clr-primary-7);
@@ -272,7 +271,7 @@ body header .card .card__grocery-container .card__grocery-list .card__grocery-it
   width: 350px;
   border-radius: 10px;
   overflow: hidden;
-  animation: anim 0.5s ease;
+  animation: anim 0.2s ease;
 }
 body header .card .card__grocery-container .card__grocery-list .card__grocery-item:hover .grocery-item__title {
   padding-left: 20px;
@@ -283,7 +282,7 @@ body header .card .card__grocery-container .card__grocery-list .card__grocery-it
   width: 100%;
   margin: 0;
   padding-left: 10px;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
 }
 body header .card .card__grocery-container .card__grocery-list .card__grocery-item .grocery-item__btn-container {
   display: flex;
@@ -291,7 +290,7 @@ body header .card .card__grocery-container .card__grocery-list .card__grocery-it
   justify-content: center;
   width: 75px;
   padding: 5px;
-  transition: 0.3s ease;
+  transition: 0.2s ease;
 }
 body header .card .card__grocery-container .card__grocery-list .card__grocery-item .grocery-item__btn-container .grocery-item__edit-btn {
   display: flex;

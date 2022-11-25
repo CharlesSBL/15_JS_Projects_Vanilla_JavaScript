@@ -1,8 +1,4 @@
 
-
-
-
-
 // =================================== Getting ===================================
 import './style.scss';
 import { createElem, createMultElem, getElem } from './modules/createElem';
@@ -10,19 +6,6 @@ import { createStyle } from './modules/createStyle';
 
 // Getting submit button
 const submit__btn = getElem('.card__submit-btn');
-
-/* 
-createStyle({
-    selectorName: 'body',
-    propertyObj: {
-        'display': 'flex',
-        'background-color': 'red',
-        'align-items': 'center',
-        'justify-content': 'center'
-    },
-});
-*/
-
 
 // ************************** local storage ******************************
 
@@ -45,8 +28,18 @@ function addToLocalStorage(id: string, value: string) {
     localStorage.setItem("list", JSON.stringify(items));
 };
 
-
 // =================================== Functions ===================================
+function changeColor() {
+    createStyle({
+        selectorName: 'body',
+        propertyObj: {
+            'display': 'flex',
+            'background-color': 'red',
+            'align-items': 'center',
+            'justify-content': 'center'
+        },
+    });
+};
 // generate new id for new elem
 function idGen(elem: HTMLElement, valu: string) {
     // Creating new data ID
@@ -148,7 +141,7 @@ function listItem(val: string) {
             alertElem.classList.add('card__alert-active');
             setTimeout(() => {
                 alertElem.classList.remove('card__alert-active');
-            }, 1000);
+            }, 500);
         }, 0);
 
         // =========================== Getting old arr from local storage
@@ -179,6 +172,10 @@ function listItem(val: string) {
         // getting text input
         const input__grocery = document.querySelector('.card__grocery') as HTMLInputElement;
 
+        input__grocery.placeholder = 'e.g. eggs';
+        submit__btn.innerHTML = 'Submit';
+        input__grocery.style.backgroundColor = "var(--clr-primary-10)";
+
         // saving text input
         const valueNew: string = input__grocery.value;
 
@@ -202,7 +199,7 @@ function listItem(val: string) {
             alertElem.classList.add('card__alert-active');
             setTimeout(() => {
                 alertElem.classList.remove('card__alert-active');
-            }, 1000);
+            }, 500);
         }, 0);
 
         // =========================== Getting old arr from local storage
@@ -232,6 +229,26 @@ function listItem(val: string) {
         // removing old event from btn 
         submit__btn.removeEventListener('click', eventCreateItem);
 
+        // getting text input
+        const input__grocery = document.querySelector('.card__grocery') as HTMLInputElement;
+        const listLocal: any[] = getLocalStorage();
+        console.log(listLocal);
+        listLocal.forEach((key, index) => {
+            // console.log(key);
+            if (index == itemIndex) {
+                console.log(key, true);
+                input__grocery.placeholder = key.value;
+            };
+        });                                     // var(--clr-primary-10)
+        input__grocery.style.backgroundColor = 'rgba(255, 255, 0, 0.2)';
+        submit__btn.innerHTML = 'Edit';
+
+        const alertElem = getElem('.card__alert');
+        alertElem.style.backgroundColor = 'rgba(255, 255, 0, 0.5)';
+        alertElem.innerHTML = 'Edit Mode';
+
+        alertElem.classList.add('card__alert-active');
+
         // adding new event and after changing remove him with adding old event
         submit__btn.addEventListener('click', eventRewriteItem);
     });
@@ -260,7 +277,7 @@ function eventCreateItem(ev: Event) {
 
         setTimeout(() => {
             alertElem.classList.remove('card__alert-active');
-        }, 1000);
+        }, 500);
     }, 0);
 
     // reset the text input field
@@ -287,10 +304,7 @@ if (list.length > 0) {
     });
 };
 
-
-
 // =================================== Event Listeners ===================================
-
 // add event listener to btn and the text input
 // for adding new item list 
 submit__btn.addEventListener('click', eventCreateItem);
@@ -315,7 +329,7 @@ getElem('.card__clear-btn').addEventListener('click', () => {
         alertElem.classList.add('card__alert-active');
         setTimeout(() => {
             alertElem.classList.remove('card__alert-active');
-        }, 1000);
+        }, 500);
     }, 0);
 });
 
