@@ -40,3 +40,7 @@ Project 13: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/13_Lo
 
 Grocery-Bud ___
 Project 14: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/14_Grocery-Bud/dist/index.html
+
+
+Slider ___
+Project 15: https://charlessbl.github.io/15_JS_Projects_Vanilla_JavaScript/15_Slider/dist/index.html
